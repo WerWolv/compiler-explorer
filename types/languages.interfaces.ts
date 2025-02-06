@@ -79,6 +79,7 @@ export type LanguageKey =
     | 'objc++'
     | 'openclc'
     | 'pascal'
+    | 'pl'
     | 'pony'
     | 'python'
     | 'racket'

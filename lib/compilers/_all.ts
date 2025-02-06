@@ -114,6 +114,7 @@ export {OdinCompiler} from './odin.js';
 export {OptCompiler} from './opt.js';
 export {PPCICompiler} from './ppci.js';
 export {PascalWinCompiler} from './pascal-win.js';
+export {PatternLanguageCompiler} from './pl.js';
 export {PonyCompiler} from './pony.js';
 export {PtxAssembler} from './ptxas.js';
 export {PythonCompiler} from './python.js';

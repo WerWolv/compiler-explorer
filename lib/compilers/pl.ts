@@ -1,4 +1,4 @@
-// Copyright (c) 2021, Compiler Explorer Authors
+// Copyright (c) 2024, WerWolv
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -22,50 +22,28 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-import './ada-mode';
-import './asm6502-mode';
-import './asm-mode';
-import './asmruby-mode';
-import './c3-mode';
-import './carbon-mode';
-import './clean-mode';
-import './cmake-mode';
-import './cobol-mode';
-import './cppcircle-mode';
-import './cpp-for-opencl-mode';
-import './cppfront-mode';
-import './cppp-mode';
-import './cppx-blue-mode';
-import './cppx-gold-mode';
-import './crystal-mode';
-import './cuda-mode';
-import './d-mode';
-import './no-highlight-mode';
-import './erlang-mode';
-import './fortran-mode';
-import './gccdump-rtl-gimple-mode';
-import './glsl-mode';
-import './haskell-mode';
-import './hlsl-mode';
-import './hook-mode';
-import './hylo-mode';
-import './ispc-mode';
-import './jakt-mode';
-import './llvm-ir-mode';
-import './mlir-mode';
-import './modula2-mode';
-import './nc-mode';
-import './nim-mode';
-import './ocaml-mode';
-import './odin-mode';
-import './openclc-mode';
-import './pl-mode';
-import './ptx-mode';
-import './slang-mode';
-import './spice-mode';
-import './spirv-mode';
-import './tablegen-mode';
-import './v-mode';
-import './vala-mode';
-import './wat-mode';
-import './zig-mode';
+import path from 'path';
+
+import type {ParseFiltersAndOutputOptions} from '../../types/features/filters.interfaces.js';
+import {BaseCompiler} from '../base-compiler.js';
+
+export class PatternLanguageCompiler extends BaseCompiler {
+    static get key() {
+        return 'pl';
+    }
+
+    override optionsForFilter(filters: ParseFiltersAndOutputOptions) {
+        filters.binary = false;
+        filters.dontMaskFilenames = true;
+
+        return [];
+    }
+
+    override getOutputFilename(dirPath: string) {
+        return path.join(dirPath, 'output.yaml');
+    }
+
+    override optionsForFilter(): string[] {
+        return ['--pl', 'format', '--output', 'output.yaml', '--formatter', 'yaml', '--verbose', '--pattern'];
+    }
+}

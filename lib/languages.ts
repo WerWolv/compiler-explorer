@@ -645,6 +645,17 @@ const definitions: Record<LanguageKey, LanguageDefinition> = {
         previewFilter: null,
         monacoDisassembly: null,
     },
+    pl: {
+        name: 'Pattern Language',
+        monaco: 'pl',
+        extensions: ['.pat', '.hexpat'],
+        alias: ['ImHex'],
+        logoUrl: 'imhex.svg',
+        logoUrlDark: null,
+        formatter: null,
+        previewFilter: null,
+        monacoDisassembly: null,
+    },
     pony: {
         name: 'Pony',
         monaco: 'pony',
